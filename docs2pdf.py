@@ -9,7 +9,7 @@ root=tk.Tk()
 
 root.title("Word To PDF")
 
-root.geometry("480x330")
+root.geometry("650x360")
 
 fn1=" "
 fn1_label = tk.Label(root, text="")

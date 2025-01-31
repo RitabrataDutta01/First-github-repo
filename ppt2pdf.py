@@ -11,7 +11,7 @@ root = tk.Tk()
 
 root.title("PPTX to PDF")
 
-root.geometry("360x360")
+root.geometry("670x360")
 
 fn1=" "
 fn1_label = tk.Label(root, text="")

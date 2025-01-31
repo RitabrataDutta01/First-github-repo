@@ -6,7 +6,7 @@ root = tk.Tk()
 
 root.title("Image to PDF")
 
-root.geometry("360x360")
+root.geometry("650x360")
 
 fn1=()
 fn1_label = tk.Label(root, text="")

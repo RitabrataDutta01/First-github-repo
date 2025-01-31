@@ -6,7 +6,7 @@ root = tk.Tk()
 
 root.title("Simple PDF Merger")
 
-root.geometry('350x200')
+root.geometry('150x150')
 
 fn1=" "
 fn2=" "
@@ -58,6 +58,5 @@ btn3 = tk.Button(root, text="Merge", command=oc2)
 lbl3.grid(row= 4, column= 0)
 btn3.grid(row= 4, column= 1)
 
-s
 
 root.mainloop()
