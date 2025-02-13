@@ -2,11 +2,17 @@ import os, openpyxl
 from fpdf import FPDF
 import tkinter as tk
 from tkinter import filedialog as fd
+from tkinter import messagebox
 
 root = tk.Tk()
 
 root.title("XLXS to PDF")
 root.geometry("650x360")
+
+def onclose():
+    response = messagebox.askyesno("Exit", "Are you sure you want to exit the application?")
+    if response:
+        root.destroy()
 
 fn1 = ' '
 fn1_label = tk.Label(root, text="")
@@ -28,14 +34,21 @@ def oc():
     
     pdf.set_font("Arial", size= 15)
     
+    x_pos = 10
+    y_pos = 10
+    col_width = 40
+
     for row in wb['Sheet1'].rows:
         for cell in row:
-            pdf.cell(200, 10, txt= str(cell.value), ln= True, align= 'L')
+            
+            pdf.set_xy(x_pos, y_pos)
+            pdf.cell(col_width, 10, txt=str(cell.value), border=1, align='L') 
+                    
+            x_pos += col_width
     
-    file_dir = os.path.dirname(fn1)
-    file_name = "converted.pdf"
-    file_path = os.path.join(file_dir, file_name)
-    pdf.output(file_path)
+        x_pos = 10
+        y_pos += 10
+
 
 
 
@@ -59,5 +72,7 @@ btn2 = tk.Button(root, text="Convert", command=oc)
 
 lbl2.grid(row=4, column=0)
 btn2.grid(row=4, column=1)
+
+root.protocol("WM_DELETE_WINDOW", onclose)
 
 root.mainloop()

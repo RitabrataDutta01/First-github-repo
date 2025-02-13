@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog as fd
 from pptx import Presentation
 from fpdf import FPDF
+from tkinter import messagebox
 
 root = tk.Tk()
 
@@ -13,6 +14,11 @@ root.geometry("670x360")
 fn1 = " "
 fn1_label = tk.Label(root, text="")
 fn1_label.grid(row=0, column=2)
+
+def onclose():
+    response = messagebox.askyesno("Exit", "Are you sure you want to exit the application?")
+    if response:
+        root.destroy()
 
 def oc1():
     global fn1
@@ -73,5 +79,7 @@ btn2.grid(row=4, column=1)
 
 status_label = tk.Label(root, text="")
 status_label.grid(row=5, column=1)
+
+root.protocol("WM_DELETE_WINDOW", onclose)
 
 root.mainloop()

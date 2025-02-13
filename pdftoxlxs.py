@@ -1,12 +1,18 @@
 import os, tabula, pandas as pd
 import tkinter as tk
 from tkinter import filedialog as fd
+from tkinter import messagebox
 
 root = tk.Tk()
 
 fn1 = ' '
 fn1_label = tk.Label(root, text= "")
 fn1_label.grid(row=0, column=2)
+
+def onclose():
+    response = messagebox.askyesno("Exit", "Are you sure you want to exit the application?")
+    if response:
+        root.destroy()
 
 def oc():
     global fn1
@@ -60,5 +66,7 @@ btn2.grid(row=4, column=1)
 root.title("PDF to XLXS")
 
 root.geometry("650x360")
+
+root.protocol("WM_DELETE_WINDOW", onclose)
 
 root.mainloop()

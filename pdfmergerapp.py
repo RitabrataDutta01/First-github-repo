@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import os, PyPDF2
+from tkinter import messagebox
 
 root = tk.Tk()
 
@@ -16,6 +17,11 @@ fn1_label.grid(row=0, column=2)
 
 fn2_label = tk.Label(root, text="")
 fn2_label.grid(row=2, column=2)
+
+def onclose():
+    response = messagebox.askyesno("Exit", "Are you sure you want to exit the application?")
+    if response:
+        root.destroy()
 
 def oc1():
     global fn1
@@ -58,5 +64,6 @@ btn3 = tk.Button(root, text="Merge", command=oc2)
 lbl3.grid(row= 4, column= 0)
 btn3.grid(row= 4, column= 1)
 
+root.protocol("WM_DELETE_WINDOW", onclose)
 
 root.mainloop()

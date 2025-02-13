@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 import docx
+from tkinter import messagebox
 from fpdf import FPDF
 
 
@@ -14,6 +15,11 @@ root.geometry("650x360")
 fn1=" "
 fn1_label = tk.Label(root, text="")
 fn1_label.grid(row=0, column=2)
+
+def onclose():
+    response = messagebox.askyesno("Exit", "Are you sure you want to exit the application?")
+    if response:
+        root.destroy()
 
 def oc1():
     global fn1
@@ -53,5 +59,7 @@ btn2 = tk.Button(root, text="Convert", command=oc)
 
 lbl2.grid(row=4, column=0)
 btn2.grid(row=4, column=1)
+
+root.protocol("WM_DELETE_WINDOW", onclose)
 
 root.mainloop()
