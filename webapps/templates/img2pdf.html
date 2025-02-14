@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="../static/css/img2pdf.css">
+</head>
+<body>
+    <header>
+        <h1>Convert Image to PDF</h1>
+    </header>
+    <div class="header-nav-gap"></div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Word to PDF</a>
+        <a href="#">PowerPoint to PDF</a>
+        <a href="#">Excel to PDF</a>
+        <a href="#">PDF to Word</a>
+        <a href="#">PDF to Excel</a>
+        <a href="#">PDF to PowerPoint</a>
+        <a href="#">PDF to Images</a>
+        <a href="#">PDF Merge</a>
+    </nav>
+    <main>
+        <form action="/convert" method="POST" enctype="multipart/form-data">
+            <label for="files">Choose image files to convert:</label>
+            <input type="file" name="files" id="files" accept="image/*" multiple required>
+            <br><br>
+            <button type="submit">Convert to PDF</button>
+        </form>
+    </main>
+</body>
+</html>
